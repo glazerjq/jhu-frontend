@@ -19,6 +19,10 @@ h1.sm {
   display: none;
 }
 
+.menu-item-title-sm {
+  display: none;
+}
+
 p {
   padding: 10px;
 }
@@ -206,11 +210,35 @@ p {
   }
 
   h1.sm {
-   display: block; 
-   font-family: "Trebuchet MS", "Courier New", Tahoma;
-   font-size: 1em;
-   text-align: left;
-   position: relative;
-   left: 10px;
+    display: block; 
+    font-family: "Trebuchet MS", "Courier New", Tahoma;
+    font-size: 1em;
+    text-align: left;
+    position: relative;
+    left: 10px;
+  }
+
+  .menu-item-title {
+    display: none;
+  }
+
+  .menu-item {
+    padding-top: 0px;
+  }
+
+  .menu-item-title-sm {
+    display: block;
+    float: left;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 2px;
+    width: 100%;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.25em;
+  }
+
+  p {
+    clear: left;
   }
 }
