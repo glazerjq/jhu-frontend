@@ -10,6 +10,10 @@ h1 {
   color: #373737;
 }
 
+h3 {
+	margin: 0px;
+}
+
 /* header styles */
 #header-nav {
   margin-bottom: 0px;
@@ -52,12 +56,6 @@ h1 {
 .panel {
   background-color: #DCD0C0;
   box-shadow: -1px 1px 2px 1px #cccccc;
-}
-
-.panel-heading {
-  text-align: center;
-  font-size: 1.2em;
-  font-weight: bold;
 }
 
 .panel-body {
