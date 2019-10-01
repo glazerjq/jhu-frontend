@@ -13,6 +13,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 
 var dc = {};
 
+var aboutHtmlUrl = "snippets/about-snippet.html";
 var homeHtmlUrl = "snippets/home-snippet.html";
 var allCategoriesUrl =
   "https://davids-restaurant.herokuapp.com/categories.json";
@@ -127,7 +128,6 @@ function buildAndShowHomeHTML (categories) {
     false); // False here because we are getting just regular HTML from the server, so no need to process JSON.
 }
 
-
 // Given array of category objects, returns a random category object.
 function chooseRandomCategory (categories) {
   // Choose a random index into the array (from 0 inclusively until array length (exclusively))
@@ -137,6 +137,27 @@ function chooseRandomCategory (categories) {
   return categories[randomArrayIndex];
 }
 
+function randomNumber1to5() {
+  return Math.floor(Math.random() * 5) + 1;
+}
+
+// Load the about view
+dc.loadAbout = function () {
+  $ajaxUtils.sendGetRequest(
+    aboutHtmlUrl,
+    function (aboutHtml) {
+      var randomNum = randomNumber1to5();
+      for (var i = 1; i <= randomNum; i++) {
+        aboutHtml = insertProperty(aboutHtml, "star" + i, "fa fa-star");
+      } 
+      for (var i = randomNum + 1; i <= 5; i++) {
+        aboutHtml = insertProperty(aboutHtml, "star" + i, "fa fa-star-o");
+      } 
+      aboutHtml = insertProperty(aboutHtml, "numStars", randomNum);
+      insertHtml("#main-content", aboutHtml); 
+    }, 
+    false);
+}
 
 // Load the menu categories view
 dc.loadMenuCategories = function () {
@@ -145,7 +166,6 @@ dc.loadMenuCategories = function () {
     allCategoriesUrl,
     buildAndShowCategoriesHTML);
 };
-
 
 // Load the menu items view
 // 'categoryShort' is a short_name for a category
